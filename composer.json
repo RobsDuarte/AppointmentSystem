@@ -1,0 +1,17 @@
+{
+    "name": "robsduarte/appointmentsystem",
+    "description": "Sistema de Agendamento",
+    "minimum-stability": "stable",
+    "license": "property",
+    "type": "project",
+    "authors": [{
+        "name": "Robson Duarte dos Santos",
+        "email": "robsduar@gmail.com",
+        "role": "Developer"
+    }],
+    "autoload": {
+        "psr-4":{
+            "Source\\":"source/"
+        }
+    }   
+}
