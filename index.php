@@ -6,13 +6,13 @@ use Source\Http\Router;
 use Source\Utils\View;
 use Source\Common\Environment;
 
-Environment::load(__DIR__);
+define('URL',getenv('URL'));
 
 View::init([
-    'URL' => getenv('URL')
+    'URL' => URL
 ]);
 
-$objectRouter = new Router(getenv('URL'));
+$objectRouter = new Router(URL);
 
 include __DIR__.'/Source/Routes/RouteCollection.php';
 
