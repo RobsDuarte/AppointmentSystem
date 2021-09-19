@@ -1,9 +1,7 @@
 <?php
 
-require_once "Model\Config.php";
-
 try{
-    $connection = new PDO("mysql:host=".DB_SERVER.";dbname:".DB_USERNAME."",DB_USERNAME,DB_PASSWORD);
+    $connection = new PDO("mysql:host=".getenv('DB_SERVER').";dbname:".getenv('DB_USERNAME')."",getenv('DB_USERNAME'),getenv('DB_PASSWORD'));
     // set the PDO error mode to exception
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);    
 }catch(PDOException $e){
