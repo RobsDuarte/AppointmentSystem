@@ -1,17 +1,18 @@
 <?php
 
-require __DIR__."/vendor/autoload.php";
+require __DIR__."/Bootstrap/app.php";
 
 use Source\Http\Router;
 use Source\Utils\View;
+use Source\Common\Environment;
 
-define('URL','http://localhost/projetos/AppointmentSystem');
+Environment::load(__DIR__);
 
 View::init([
-    'URL' => URL
+    'URL' => getenv('URL')
 ]);
 
-$objectRouter = new Router(URL);
+$objectRouter = new Router(getenv('URL'));
 
 include __DIR__.'/Source/Routes/RouteCollection.php';
 
