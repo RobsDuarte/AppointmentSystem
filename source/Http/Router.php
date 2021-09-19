@@ -142,14 +142,14 @@ Class Router
     private function getRoute()
     {
         $uri =$this->getUri();
-        $httpMethod = $this->request->getHttpMethod();
-
+        $httpMethod = $this->request->getHttpMethod();        
+        
         foreach($this->routes as $patternRoute=>$method)
         {            
             if(preg_match($patternRoute,$uri))
             {                
-                if($method[$httpMethod])
-                {
+                if(isset($method[$httpMethod]))
+                {                    
                     return $method[$httpMethod];
                 }
                 throw new Exception("Método não permitido",405);
