@@ -11,12 +11,16 @@
     <main>
         <h1>Titudo dahora demais</h1>
 
-        <form method="POST" action="../Model/Login_validation.php">
-            <label for="user">User</label>
-            <input type="text" id="user">  
-            <label for="password">Password</label>         
-            <input type="password" id="password">                        
-            <input type="submit" value="acessar" id="submit">
+        <form method="post" action="{{URL}}/home">
+
+            <label for="user">Usuário</label>
+            <input type="text" id="user" name="nome">  
+
+            <label for="password">Senha</label>         
+            <input type="password" id="password" name="senha">    
+
+            <button type="submit">Acessar</buttontype=>
+
         </form>
 
     </main>
