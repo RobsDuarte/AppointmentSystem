@@ -4,7 +4,6 @@ require __DIR__."/Bootstrap/app.php";
 
 use Source\Http\Router;
 use Source\Utils\View;
-use Source\Common\Environment;
 
 define('URL',getenv('URL'));
 
