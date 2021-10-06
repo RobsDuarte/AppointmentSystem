@@ -17,3 +17,10 @@ $objectRouter->post('/home',[
         return new Response(200,Home::getHome());
     }
 ]);
+
+$objectRouter->post('/',[
+    function($request)
+    {        
+        return new Response(200,Login::requestLogin($request));        
+    }
+]);
