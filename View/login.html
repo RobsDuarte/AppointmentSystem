@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Style/login.css" type="text/css">
+    <link rel="stylesheet" href="Style/login.css" type="text/css">    
     <title>Titulo maneirissimo</title>
 </head>
 <body>
     <main>
-        <h1>Titudo dahora demais</h1>
+        <h1>Titulo dahora demais</h1>
 
-        <form method="post" action="{{URL}}/home">
+        <form method="post">
 
             <label for="user">Usuário</label>
-            <input type="text" id="user" name="nome">  
+            <input type="text" id="user" name="nome" required>  
 
             <label for="password">Senha</label>         
-            <input type="password" id="password" name="senha">    
+            <input type="password" id="password" name="senha" required>            
 
-            <button type="submit">Acessar</buttontype=>
-
+            <button id="submit" type='submit'>Acessar</button>
         </form>
 
+        <p id="ErrorMsg">{{ERROR}}</p>       
+        
     </main>
 </body>
 </html>
