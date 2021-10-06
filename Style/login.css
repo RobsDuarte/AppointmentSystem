@@ -23,8 +23,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   height: 100vh;
-  background-color: black;
-  color: white;
+  background-color: #fdf6e7;
 }
 
 main {
@@ -51,6 +50,11 @@ main form {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
+  border: 0.1px solid #191971;
+  color: #191971;
+  padding: 2rem;
+  -webkit-box-shadow: 0 4px 8px 0 #191971;
+          box-shadow: 0 4px 8px 0 #191971;
 }
 
 main form label {
@@ -60,20 +64,34 @@ main form label {
 
 main form input {
   height: 2rem;
-  border-radius: 1rem;
   font-size: 1rem;
 }
 
+main h1 {
+  color: #191971;
+}
+
 #submit {
-  margin-top: 1rem;
+  margin-top: 2rem;
+  padding: .5rem;
   font-size: 1.2rem;
-  font-weight: 800;
+  font-weight: 900;
   color: white;
-  background-color: black;
+  background-color: #191971;
 }
 
 #submit:hover {
   background-color: white;
-  color: black;
+  color: #191971;
+  border: 2px solid #191971;
+}
+
+#ErrorMsg {
+  display: none;
+  background-color: #b3ff66;
+  border: 2px solid #006602;
+  color: #006602;
+  width: 200px;
+  text-align: center;
 }
 /*# sourceMappingURL=login.css.map */
