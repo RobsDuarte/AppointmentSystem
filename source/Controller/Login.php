@@ -8,9 +8,6 @@ use Source\Model\Data;
 session_start();
 class Login
 {
-    private $model;
-    private $msg;
-
     public static function getLogin($msg = [])
     {    
         return View::render('login',$msg);        
