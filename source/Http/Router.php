@@ -2,8 +2,9 @@
 
 namespace Source\Http;
 
-use Closure;
-use Exception;
+use \Closure;
+use \Exception;
+use \ReflectionFunction;
 Class Router 
 {
     /**
@@ -64,18 +65,18 @@ Class Router
      * @param array $params     
      */
     private function addRoute($method,$route,$params = [])
-    {
+    {        
         foreach($params as $key => $value)
         {
             if($value instanceof Closure)
             {
                 $params['controller']  = $value;
                 unset($params[$key]);
-            }
+            }            
         }
         //Padrão de validação da url
         $patternRoute = '/^'.str_replace('/','\/',$route).'$/';
-        $this->routes[$patternRoute][$method] = $params;
+        $this->routes[$patternRoute][$method] = $params;                           
     }
 
     /**
@@ -98,7 +99,7 @@ Class Router
     public function post($route,$params = [])
     {
         return $this->addRoute('POST',$route,$params);
-    }
+    }   
 
     /**
      * Método responsável por definir uma rota de PUT
@@ -141,15 +142,17 @@ Class Router
      */
     private function getRoute()
     {
-        $uri =$this->getUri();
+        $uri =$this->getUri();        
         $httpMethod = $this->request->getHttpMethod();        
         
         foreach($this->routes as $patternRoute=>$method)
-        {            
-            if(preg_match($patternRoute,$uri))
+        {           
+            if(preg_match($patternRoute,$uri[0]))
             {                
                 if(isset($method[$httpMethod]))
-                {                    
+                {                  
+                    $method[$httpMethod]['request'] = $this->request;  
+                                     
                     return $method[$httpMethod];
                 }
                 throw new Exception("Método não permitido",405);
@@ -164,12 +167,20 @@ Class Router
         try
         {
             $route = $this->getRoute();
-
+            
             if(!isset($route['controller']))
             {
                 throw new Exception('URL não pode ser processada',500);
             }
             $args = [];
+            $reflection = new ReflectionFunction($route['controller']);
+            
+            foreach($reflection->getParameters() as $parameter)
+            {
+                $name = $parameter->getName();
+                $args[$name] = $route[$name] ?? '';                                                                                        
+            }          
+            
             return call_user_func($route['controller'],$args);
         }
         catch(Exception $e)
