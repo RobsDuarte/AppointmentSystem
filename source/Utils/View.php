@@ -24,8 +24,7 @@ class View
 
     public static function render($view,$vars = [])
     {
-        $vars = array_merge(self::$vars,$vars);
-        if(empty($vars)) return self::getContent($view);
+        $vars = array_merge(self::$vars,$vars);        
 
         $keys = array_keys($vars);
         $keys = array_map(function($element_in_array)        
