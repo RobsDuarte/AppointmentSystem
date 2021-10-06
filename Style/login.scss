@@ -1,7 +1,10 @@
 //Variables
 
-$color-primary:hsl(0, 0, 0);
+$color-primary:hsla(240, 64%, 27%, 1);
 $color-secondary:hsl(0,0,100);
+$dark-green:hsl(121, 100%, 20%);
+$light-green:hsl(90, 100%, 70%);
+$backgroud-color: hsl(39, 85%, 95%);
 
 *,*::before,*::after
 {
@@ -23,8 +26,7 @@ body
     align-items: center;
     justify-content: center; 
     height:100vh;    
-    background-color: $color-primary;  
-    color: $color-secondary; 
+    background-color: $background-color;    
 }
 
 main
@@ -38,7 +40,11 @@ main
     {
         display: inherit; 
         flex-direction: column;              
-        text-align: center;       
+        text-align: center;   
+        border: .1px solid $color-primary;
+        color: $color-primary;   
+        padding: 2rem;    
+        box-shadow: 0 4px 8px 0 $color-primary; 
         label
         {
             font-weight: 900;
@@ -46,27 +52,40 @@ main
         }      
         input
         {
-            height: 2rem;
-            border-radius:1rem;
+            height: 2rem;            
             font-size:1rem;                               
-        }
+        }       
+    }
+    h1
+    {
+        color: $color-primary;
     }
 }
 
 #submit
 {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    padding: .5rem;
     font-size: 1.2rem;
-    font-weight: 800;
+    font-weight: 900;    
     color: $color-secondary;
-    background-color:$color-primary;
-     
+    background-color:$color-primary;    
 }
 
 #submit:hover
 {
     background-color: $color-secondary;
-    color:$color-primary;     
+    color:$color-primary;   
+    border: 2px solid $color-primary;  
+}
+
+#ErrorMsg{    
+   display: none;   
+   background-color: $light-green;
+   border: 2px solid $dark-green;
+   color: $dark-green;
+   width: 200px;   
+   text-align: center;       
 }
 
 
