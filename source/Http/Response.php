@@ -64,7 +64,7 @@ class Response
      */
     private function addHeader($key,$value)
     {
-        $this->header[$key] = $value;
+        $this->header[$key] = $value;        
     }
 
     /**

@@ -46,7 +46,7 @@ Class Request
     {
         $this->queryParams = $_GET ?? [];
         $this->postVars = $_POST ?? [];
-        $this->headers = getallheaders();
+        $this->headers = getallheaders();       
         $this->uri = $_SERVER["REQUEST_URI"] ?? [];
         $this->httpMethod = $_SERVER["REQUEST_METHOD"];        
     }
@@ -75,7 +75,7 @@ Class Request
      * @return array
      */
     public function getHeaders()
-    {
+    {        
         return $this->headers;
     }
 
